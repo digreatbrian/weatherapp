@@ -41,5 +41,5 @@ This project is licensed under the MIT License.
 Stay tuned for more features! And remember, no matter the weather, WeatherApp has got you covered!
 
 <p align="center">
-  <strong>⭐️ Star us on GitHub and 🚀 Follow me — it helps!</strong>
+  <strong>⭐️ Star me on GitHub and 🚀 Follow me — it helps!</strong>
 </p>
