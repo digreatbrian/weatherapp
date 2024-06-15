@@ -1,0 +1,71 @@
+#:import Toolbar widgets.toolbar.Toolbar
+#:import Theme theme.DefaultTheme
+#:import HeadlineLabel widgets.toolbar.HeadlineLabel
+#:import Dashboard widgets.dashboard.WeatherDashboard
+#:import LocationChooser widgets.location_chooser.LocationChooser
+#:import WeatherChart widgets.line_chart.WeatherChart
+
+
+<Main>:
+	orientation: 'vertical'
+	spacing: dp(2)
+	
+	Toolbar:
+		id: main_toolbar
+        title: "Weather"
+        anchor_title: "left"
+        size_hint:(1, .12)
+		right_action_items:[['dots-vertical', lambda x: self.open_menu(x), "menu"]]
+		material_style: 'M3'
+		type_height:'small'
+		padding: (dp(2), dp(5))
+		# adding headline
+		BoxLayout:
+			id: headline_label_container
+			orientation: 'horizontal'
+			size_hint: (1, .05)
+			HeadlineLabel:
+				id: headline_label
+				opacity: .8
+				halign: 'left'
+				size_hint: (None, 1)
+			# placeholder widget
+			BoxLayout:
+				id: headline_placeholder
+				size_hint: (1, 1)
+		
+	MDBoxLayout:
+		id: main_container
+		orientation: 'vertical'
+		spacing: dp(2)
+		bio: description
+		weather_image: weather_image
+		
+		LocationChooser:
+			id: location_chooser
+			text: "Chinhoyi"
+			size_hint: (.7, .1)
+			xbg_color: Theme.primary_light_color
+			pos_hint: {'center_x':.5}
+			
+		WeatherDashboard:
+			id: weather_dashboard
+			size_hint_y:.5
+		
+		BoxLayout:
+			id: placeholder
+			orientation: 'vertical'
+			MDCard:
+				id: card
+				pos_hint:{"center_x":.5}
+				orientation: 'vertical'
+				Image:
+					id: weather_image
+					source: 'cloudy.png'
+				MDLabel:
+					id: description
+					text: "No data yet"
+					halign: 'center'
+					padding: (dp(8), dp(4))
+					markup: True
+					
